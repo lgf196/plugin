@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="slidebanner.js"></script>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            border: 0;
+        }
+
+       .all {
+          width: 500px;
+          height: 200px;
+          padding: 7px;
+
+          margin: 100px auto;
+          position: relative;
+      }
+
+        .screen {
+            width: 500px;
+            height: 200px;
+             overflow: hidden;
+            position: relative;
+
+        }
+
+        .screen li {
+            width: 500px;
+            height: 200px;
+            overflow: hidden;
+            float: left;
+        }
+
+        .screen ul {
+            position: absolute;
+            left: 0;
+            top: 0px;
+            width: 3000px;
+        }
+
+        .all ol {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            line-height: 20px;
+            text-align: center;
+        }
+
+        .all ol li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border: 1px solid #ccc;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .all ol li.current {
+            background: yellow;
+        }
+
+
+
+        #arr span {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            margin-top: -20px;
+            background: #000;
+            cursor: pointer;
+            line-height: 40px;
+            text-align: center;
+            font-weight: bold;
+            font-family: '黑体';
+            font-size: 30px;
+            color: #fff;
+            opacity: 0.3;
+            border: 1px solid #fff;
+        }
+
+        #arr #right {
+            right: 5px;
+            left: auto;
+        }
+
+    </style>
+</head>
+<body>
+ <div class="all" id='box'>
+    <div class="screen">
+        <ul class="bigul">
+            <li><img src="images/1.jpg" width="500" height="200"/></li>
+            <li><img src="images/2.jpg" width="500" height="200"/></li>
+            <li><img src="images/3.jpg" width="500" height="200"/></li>
+            <li><img src="images/4.jpg" width="500" height="200"/></li>
+            <li><img src="images/5.jpg" width="500" height="200"/></li>
+            <!-- <li><img src="images/1.jpg" width="500" height="200"/></li> -->
+        </ul>
+        <ol class="square">
+          <li class="current">1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+          <li>5</li>
+        </ol>
+    </div>
+    <div id="arr">
+         <span id="left">&lt;</span>
+         <span id="right">&gt;</span>
+    </div>
+</div>
+<script>
+$(function(){
+    $(".all").slidebanner({
+        focuseles:'.square>li',     //全部的小焦点
+        liimgeles:'.bigul>li',      //全部img的li
+        bigul:'.bigul',         //包含img的父盒子
+        outerdiv:'.all',      //包含整个banner区的大盒子
+        bind:'click',     //事件类型
+        leftbtn:'#left',      //左按钮
+        rightbtn:'#right',      //右按钮
+        /*createli:'<li></li>',
+        bigfocusul:'.square',
+        focusclass:'current'*/
+
+    });
+})
+</script>
+</body>
+</html>

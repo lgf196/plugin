@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="public.css"/>
+		<script src="jquery.js"></script>
+		<script src="fadebanner.js"></script>
+		<style type="text/css">
+			#main{width: 790px;height: 340px;margin:100px auto;position: relative; }
+			#list{width: 790px;height: 340px;position: relative;}
+			#list img{position: absolute;left: 0;top: 0;display: none;}
+			#oul{width: 220px;height:30px;position: absolute;left:275px; bottom: 25px;}
+			#oul ul li{width: 30px; height: 25px;display: block;float: left;border-radius:50%;background: pink;
+			margin: 5px;text-align: center;cursor: pointer;}
+			#oul ul li.on{background: red;}
+			#left{width: 60px;height: 50px;position: absolute;right:0px;top: 145px;text-align: center;font-family: "微软雅黑";font-size: 35px;color: white;
+			background: rgba(0,0,0,0.5);}
+			#right{width: 60px;height: 50px;background: rgba(0,0,0,0.5);
+			position: absolute;left:0px;top: 145px;text-align: center;font-family: "微软雅黑";font-size: 35px;color: white;}
+		</style>
+	</head>
+	<body>
+		<div id="main">
+			<div id="list">
+				<img src="img/image/a.jpg" alt="" style="display:block;"/>
+				<img src="img/image/b.jpg" alt="" />
+				<img src="img/image/c.jpg" alt="" />
+				<img src="img/image/d.jpg" alt="" />
+				<img src="img/image/e.jpg" alt="" />
+			</div>
+			<a href="javascript:void(0)" id="right">&lt;</a>
+			<a href="javascript:void(0)" id="left">&gt;</a>
+			<div id="oul">
+				<ul>
+					<li class="on">1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+					<li>5</li>
+				</ul>
+			</div>			
+		</div>
+	</body>
+	<script type="text/javascript">
+	$(function(){
+		 $("#main").fadebanner({
+		 
+        focuseles:'#oul>ul>li',     //全部的小焦点
+        liimgeles:'#list>img',      //全部img的li
+        //bigul:'.bigul',         //包含img的父盒子
+        outerdiv:'#main',      //包含整个banner区的大盒子
+        bind:'mouseover',     //事件类型
+        leftbtn:'#right',      //左按钮
+        rightbtn:'#left',
+         focusclass:"on"    //右按钮
+    	});
+	})
+	    
+		
+	</script>
+</html>
